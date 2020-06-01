@@ -21,6 +21,7 @@ router.post(
         }),
     ],
     async (req, res) => {
+        // if there are validation errors return status 400
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });

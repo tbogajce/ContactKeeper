@@ -8,6 +8,7 @@ const connectDB = async () => {
             useNewUrlParser: true,
             useCreateIndex: true,
             useFindAndModify: false,
+            useUnifiedTopology: true,
         });
 
         console.log('MongoDB Connected...');
@@ -15,19 +16,6 @@ const connectDB = async () => {
         console.error(err.message);
         process.exit(1);
     }
-
-    // or we can use promise instead of async/await
-    // mongoose
-    //     .connect(db, {
-    //         useNewUrlParser: true,
-    //         useCreateIndex: true,
-    //         useFindAndModify: false,
-    //     })
-    //     .then(() => console.log('MongoDB Connected'))
-    //     .catch((err) => {
-    //         console.error(err.message);
-    //         process.exit(1);
-    //     });
 };
 
 module.exports = connectDB;
